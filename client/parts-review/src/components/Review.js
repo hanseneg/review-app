@@ -1,6 +1,6 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { /* useState, */ useContext, /* useEffect */ } from 'react'
 import { UserContext } from '../context/UserProvider'
-import Comment from '../components/Comment'
+//import Comment from '../components/Comment'
 
 //review itself to be mapped over and shown individually in the public page and profile page 
 //in public page all reviews are shown and in profile page only user's reviews are shown 
@@ -13,37 +13,37 @@ export default function Review(props){
     //checks to see if id is in upvotes or downvotes or neither to allow them to vote or not
 
     //for toggling the comment form on and off
-    const [showCommentForm, setCommentForm] = useState(false)
+    //const [showCommentForm, setCommentForm] = useState(false)
 
-    const showCommentForm1 = () => {
-        setCommentForm(!showCommentForm)
-    }
+    // const showCommentForm1 = () => {
+    //     setCommentForm(!showCommentForm)
+    // }
 
     //for adding a comment
-    const { addComment, getReviewComments, upVote, downVote } = useContext(UserContext)
-    const initInput = { comment: "" } 
-    const [comment, setComment] = useState(initInput)
-    const [comments, setComments] = useState([])
+    const { /* addComment, getReviewComments, */ upVote, downVote } = useContext(UserContext)
+    // const initInput = { comment: "" } 
+    // const [comment, setComment] = useState(initInput)
+    // const [comments, setComments] = useState([])
     
-    function handleChange(e){
-        const {name, value} = e.target
-        setComment(prevComment => ({
-        ...prevComment,
-        [name]: value
-        }))
-    }
+    // function handleChange(e){
+    //     const {name, value} = e.target
+    //     setComment(prevComment => ({
+    //     ...prevComment,
+    //     [name]: value
+    //     }))
+    // }
 
-    function handleSubmit(e){
-        e.preventDefault()
-        addComment(comment, _id)
-            .then(data => setComments(prevComments => [...prevComments, data]))
-        setComment(initInput)
-    }
+    // function handleSubmit(e){
+    //     e.preventDefault()
+    //     addComment(comment, _id)
+    //         .then(data => setComments(prevComments => [...prevComments, data]))
+    //     setComment(initInput)
+    // }
 
-    useEffect(() => {
-        getReviewComments(_id)
-        .then(data => setComments(data))
-      }, [getReviewComments, _id, setComments])
+    // useEffect(() => {
+    //     getReviewComments(_id)
+    //     .then(data => setComments(data))
+    //   }, [getReviewComments, _id, setComments])
     
     function upVoting(){
         upVote(_id)
@@ -51,7 +51,7 @@ export default function Review(props){
 
     function downVoting(){
         downVote(_id)
-    }
+    } 
 
     //for displaying comments
     //map over Comment here? to show comments for each review or map over them in Comment.js component 
@@ -69,7 +69,7 @@ export default function Review(props){
             <p>{downVotes.length}</p>
 
 
-            <button className='button' onClick={showCommentForm1} >Leave a Comment</button>
+            {/* <button className='button' onClick={showCommentForm1} >Leave a Comment</button>
             {showCommentForm && (
                 <form onSubmit={handleSubmit}>
                         <textarea 
@@ -88,7 +88,7 @@ export default function Review(props){
                         <Comment key={comment._id} {...comment} _id={_id} /> 
                     )
                 })}
-            </div>  
+            </div>   */}
         </div>
     )
 }
