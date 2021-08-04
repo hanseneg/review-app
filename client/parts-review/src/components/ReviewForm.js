@@ -7,7 +7,7 @@ export default function ReviewForm(props){
   //const { _id } = props
   const { addReview } = useContext(UserContext)
   
-  const initInputs = { title: "", description: "" }
+  const initInputs = { title: "", description: "", imgUrl: "" }
   const [inputs, setInputs] = useState(initInputs)
 
   function handleChange(e){
