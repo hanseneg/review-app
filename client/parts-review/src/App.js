@@ -12,6 +12,8 @@ export default function App(){
   const { token, logout } = useContext(UserContext)
   return (
     <div className="app">
+      {/* if there is a token-show navbar */}
+      {/* can also be used in navbar component to hide logout or profile until token is present like below */}
       { token && <Navbar logout={logout}/>}
       <Switch>
         <Route 

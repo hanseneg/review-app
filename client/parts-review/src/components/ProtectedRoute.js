@@ -7,3 +7,5 @@ export default function ProtectedRoute(props){
         <Route path={path} render={() => <C {...rest}/>}/> : 
         <Redirect to={redirectTo} />
 }
+
+//rest is spread in to cover props passed down from other components
