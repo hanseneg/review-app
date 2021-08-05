@@ -38,6 +38,12 @@ export default function ReviewForm(props){
         value={inputs.description} 
         onChange={handleChange} 
         placeholder="Description"/>
+      <input 
+        type='text'
+        name='imgUrl'
+        value={inputs.imgUrl}
+        onChange={handleChange}
+        placeholder='Image Url'/>
       <button className='button'>Add Review</button>
     </form>
   )

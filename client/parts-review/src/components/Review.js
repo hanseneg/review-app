@@ -69,6 +69,7 @@ export default function Review(props){
             <p className='description'>{description}</p>
             <img src={imgUrl} alt={imgUrl} width={300}/>
             <button className='button' onClick={upVoting} >Agree</button>
+            {/* bring back votes later */}
             <p>{upVotes.length}</p>
             <button className='button' onClick={downVoting} >Disagree</button>
             <p>{downVotes.length}</p>

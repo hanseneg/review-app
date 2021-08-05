@@ -9,9 +9,13 @@ const reviewSchema = new Schema({
     description: {
         type: String
     },
-    completed: {
-        type: Boolean,
-        default: false
+    upVotes: {
+        type: [Schema.Types.ObjectId],
+        ref: "User"
+    },
+    downVotes: {
+        type: [Schema.Types.ObjectId],
+        ref: "User"
     },
     imgUrl: {
         type: String,
