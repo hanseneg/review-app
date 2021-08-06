@@ -6,7 +6,7 @@ import { UserContext } from '../context/UserProvider'
 //in public page all reviews are shown and in profile page only user's reviews are shown 
 
 export default function Review(props){
-    const { title, description, _id, imgUrl, user: { username }, upVotes, downVotes } = props
+    const { title, description, _id, imgUrl,   upVotes, downVotes } = props
 
 
     
@@ -24,7 +24,7 @@ export default function Review(props){
     // }
 
     //for adding a comment
-    const { /* addComment, getReviewComments, */ upVote, downVote } = useContext(UserContext)
+    const { /* addComment, getReviewComments, */ upVote, downVote, user: {username} } = useContext(UserContext)
     // const initInput = { comment: "" } 
     // const [comment, setComment] = useState(initInput)
     // const [comments, setComments] = useState([])
@@ -65,9 +65,10 @@ export default function Review(props){
             <hr className='hr'/>
             <h2>{title}</h2>
             {/* username does not show up for some reason */}
-            <p>{username}</p>
+            <p>Review left by: {username}</p>
             <p className='description'>{description}</p>
             <img src={imgUrl} alt={imgUrl} width={300}/>
+
             <button className='button' onClick={upVoting} >Agree</button>
             {/* bring back votes later */}
             <p>{upVotes.length}</p>

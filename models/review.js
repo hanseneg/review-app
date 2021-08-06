@@ -21,11 +21,15 @@ const reviewSchema = new Schema({
         type: String,
         required: true
     },
+    date: {
+        type: Date,
+        default: Date.now
+    },
     //one to many
     //references reviews to user
     user : {
         type: Schema.Types.ObjectId,
-        ref: 'User',
+        ref: "User",
         required: true
     }
 })

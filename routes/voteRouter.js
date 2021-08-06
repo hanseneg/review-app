@@ -1,39 +1,39 @@
 const express = require("express")
 const voteRouter = express.Router()
-const Issue = require('../models/issue.js')
+const Review = require('../models/review.js')
 
-voteRouter.put('/up/issue/:issueId', (req, res, next) => {
-    Issue.findByIdAndUpdate(
-        { _id: req.params.issueId },
+voteRouter.put('/up/review/:reviewId', (req, res, next) => {
+    Review.findByIdAndUpdate(
+        { _id: req.params.reviewId },
         { 
             $addToSet: { upVotes: req.user._id },
             $pull: { downVotes: req.user._id }
         },
         { new: true },
-        (err, upVotedIssue) => {
+        (err, upVotedReview) => {
             if(err) {
                 res.status(500)
                 return next(err)
             }
-            return res.status(201).send(upVotedIssue)
+            return res.status(201).send(upVotedReview)
         }
     )
 })
 
-voteRouter.put('/down/issue/:issueId', (req, res, next) => {
-    Issue.findByIdAndUpdate(
-        { _id: req.params.issueId },
+voteRouter.put('/down/review/:reviewId', (req, res, next) => {
+    Review.findByIdAndUpdate(
+        { _id: req.params.reviewId },
         { 
             $addToSet: { downVotes: req.user._id },
             $pull: { upVotes: req.user._id }
         },
         { new: true },
-        (err, downVotedIssue) => {
+        (err, downVotedReview) => {
             if(err) {
                 res.status(500)
                 return next(err)
             }
-            return res.status(201).send(downVotedIssue)
+            return res.status(201).send(downVotedReview)
         }
     )
 })
