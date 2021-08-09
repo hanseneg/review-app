@@ -21,6 +21,8 @@ export default function UserProvider(props){
 
     const [userState, setUserState] = useState(initState)
     const [allReviews, setAllReviews] = useState([])
+    //const [userReviews, setUserReviews] = useState([])
+
     //moved to Review.js
     //const [reviewComments, setReviewComments] = useState([])
 
@@ -83,6 +85,8 @@ export default function UserProvider(props){
             .catch(err => console.log(err.response.data.errMsg))
     }
 
+    //maybe here 
+
     function getUserReviews(){
         userAxios.get('/api/review/user')
             .then(res => {
@@ -128,13 +132,17 @@ export default function UserProvider(props){
 
     function upVote(reviewId) {
         userAxios.put(`/api/vote/up/review/${reviewId}`)
-            .then(res => setAllReviews(prevReviews => prevReviews.map(review => review._id === reviewId ? res.data : review)))
+            .then(res => {
+                setAllReviews(prevReviews => prevReviews.map(review => review._id === reviewId ? res.data : review))
+            })
             .catch(err => console.log(err.response.data.errMsg))
     }
 
     function downVote(reviewId) {
         userAxios.put(`/api/vote/down/review/${reviewId}`)
-            .then(res => setAllReviews(prevReviews => prevReviews.map(review => review._id === reviewId ? res.data : review)))
+            .then(res => {
+                setAllReviews(prevReviews => prevReviews.map(review => review._id === reviewId ? res.data : review))
+            })
             .catch(err => console.log(err.response.data.errMsg))
     }
 

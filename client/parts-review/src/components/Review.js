@@ -6,7 +6,7 @@ import { UserContext } from '../context/UserProvider'
 //in public page all reviews are shown and in profile page only user's reviews are shown 
 
 export default function Review(props){
-    const { title, description, _id, imgUrl,   upVotes, downVotes } = props
+    const { title, description, _id, imgUrl, upVotes, downVotes } = props
 
 
     
