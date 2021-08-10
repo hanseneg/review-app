@@ -21,7 +21,6 @@ export default function UserProvider(props){
 
     const [userState, setUserState] = useState(initState)
     const [allReviews, setAllReviews] = useState([])
-    //const [userReviews, setUserReviews] = useState([])
 
     //moved to Review.js
     //const [reviewComments, setReviewComments] = useState([])
@@ -85,8 +84,6 @@ export default function UserProvider(props){
             .catch(err => console.log(err.response.data.errMsg))
     }
 
-    //maybe here 
-
     function getUserReviews(){
         userAxios.get('/api/review/user')
             .then(res => {
@@ -128,12 +125,15 @@ export default function UserProvider(props){
     //fix this to show votes in profile page without having to refresh
 
     //logic to allow votes to show up correctly in profile page 
-    //logic=check user reviews for review ids like below use if else statement?
+    //logic=check user reviews for review ids like below
+
+    //refactor the upvote/downvote functions to also update userReviews and not just allReviews by calling getUserReviews
 
     function upVote(reviewId) {
         userAxios.put(`/api/vote/up/review/${reviewId}`)
             .then(res => {
                 setAllReviews(prevReviews => prevReviews.map(review => review._id === reviewId ? res.data : review))
+                getUserReviews(prevReviews => prevReviews.map(review => review._id === reviewId ? res.data : review))
             })
             .catch(err => console.log(err.response.data.errMsg))
     }
@@ -142,6 +142,7 @@ export default function UserProvider(props){
         userAxios.put(`/api/vote/down/review/${reviewId}`)
             .then(res => {
                 setAllReviews(prevReviews => prevReviews.map(review => review._id === reviewId ? res.data : review))
+                getUserReviews(prevReviews => prevReviews.map(review => review._id === reviewId ? res.data : review))
             })
             .catch(err => console.log(err.response.data.errMsg))
     }

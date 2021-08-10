@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react'
+import { FaStar } from 'react-icons/fa'
 import { UserContext } from '../context/UserProvider'
+//import Star from './Star'
 
 //form to submit a new review
 
@@ -7,8 +9,11 @@ export default function ReviewForm(props){
   //const { _id } = props
   const { addReview } = useContext(UserContext)
   
-  const initInputs = { title: "", description: "", imgUrl: "" }
+  const initInputs = { title: "", description: "", imgUrl: "", rating: null }
   const [inputs, setInputs] = useState(initInputs)
+
+  //const [rating, setRating] = useState(null)
+  const [hover, setHover] = useState(null)
 
   function handleChange(e){
     const {name, value} = e.target
@@ -44,6 +49,32 @@ export default function ReviewForm(props){
         value={inputs.imgUrl}
         onChange={handleChange}
         placeholder='Image Url'/>
+
+      <div>
+          {[...Array(5)].map((star, i) => {
+              const rating = i + 1
+
+              return (
+                  <label>
+                      <input 
+                          type='radio' 
+                          name='rating' 
+                          value={inputs.rating} 
+                          className='star' 
+                          onClick={() => setInputs(rating)}
+                      />
+                      <FaStar 
+                          color={rating <= (hover || rating) ? "#ffc107" : "#e4e5e9"} 
+                          onMouseEnter={() => setHover(rating)}
+                          onMouseLeave={() => setHover(null)}
+                          size={20}/>
+                  </label>
+              )
+          })}
+          <p>The rating is {/* {rating} */}.</p>
+      </div>
+
+
       <button className='button'>Add Review</button>
     </form>
   )

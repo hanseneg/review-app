@@ -1,4 +1,4 @@
-import React, { /* useState, */ useContext, /* useEffect */ } from 'react'
+import React, { /* useState */ useContext, /* useEffect */ } from 'react'
 import { UserContext } from '../context/UserProvider'
 //import Comment from '../components/Comment'
 
@@ -64,15 +64,14 @@ export default function Review(props){
         <div>
             <hr className='hr'/>
             <h2>{title}</h2>
-            {/* username does not show up for some reason */}
             <p>Review left by: {username}</p>
+            <p>{/* {rating} */}2 stars.</p>
             <p className='description'>{description}</p>
             <img src={imgUrl} alt={imgUrl} width={300}/>
-
-            <button className='button' onClick={upVoting} >Agree</button>
-            {/* bring back votes later */}
+            <p>Is this review helpful?</p>
+            <button className='button' onClick={upVoting} >Yes</button>
             <p>{upVotes.length}</p>
-            <button className='button' onClick={downVoting} >Disagree</button>
+            <button className='button' onClick={downVoting} >No</button>
             <p>{downVotes.length}</p>
 
 

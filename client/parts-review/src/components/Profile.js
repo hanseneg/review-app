@@ -15,7 +15,7 @@ export default function Profile(){
   return (
     <div className="profile">
       <h1>Welcome @{username}!</h1>
-      <h3>Add An Review</h3>
+      <h3>Add A Review</h3>
       <ReviewForm addReview={addReview}/>
       <h3>Your Reviews</h3>
       <div>
