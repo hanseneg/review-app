@@ -5,15 +5,16 @@ import Star from './Star'
 
 //form to submit a new review
 
-export default function ReviewForm(props){
+export default function ReviewForm(){
   //const { _id } = props
   const { addReview } = useContext(UserContext)
   
-  const initInputs = { title: "", description: "", imgUrl: "", rating: 0 }
+  const initInputs = { title: "", description: "", imgUrl: "", rating: 3 }
   const [inputs, setInputs] = useState(initInputs)
 
   
-
+//pass down inputs.rating as a prop to Star and set that as the value, 
+//so that every time the rating changes, the rating property of inputs will update
 
   function handleChange(e){
     const {name, value} = e.target
@@ -49,8 +50,10 @@ export default function ReviewForm(props){
         value={inputs.imgUrl}
         onChange={handleChange}
         placeholder='Image Url'/>
-      <Star />
+      <Star 
+      rating={inputs.rating}/>
       <button className='button'>Add Review</button>
+      <p>The rating is {inputs.rating}.</p>
     </form>
   )
 }
