@@ -9,12 +9,19 @@ export default function ReviewForm(){
   //const { _id } = props
   const { addReview } = useContext(UserContext)
   
-  const initInputs = { title: "", description: "", imgUrl: "", rating: 3 }
+  const initInputs = { title: "", description: "", imgUrl: "", rating: 0 }
   const [inputs, setInputs] = useState(initInputs)
 
   
 //pass down inputs.rating as a prop to Star and set that as the value, 
 //so that every time the rating changes, the rating property of inputs will update
+
+//pass a function from ReviewForm to Star that calls setInputs, 
+//and setInputs will set the rating property to ratingValue
+
+  function handleRating(){
+    setInputs()
+  }
 
   function handleChange(e){
     const {name, value} = e.target
@@ -37,21 +44,26 @@ export default function ReviewForm(){
         name="title" 
         value={inputs.title} 
         onChange={handleChange} 
-        placeholder="Title"/>
+        placeholder="Title"
+        />
       <textarea 
         type="text" 
         name="description" 
         value={inputs.description} 
         onChange={handleChange} 
-        placeholder="Description"/>
+        placeholder="Description"
+        />
       <input 
         type='text'
         name='imgUrl'
         value={inputs.imgUrl}
         onChange={handleChange}
-        placeholder='Image Url'/>
+        placeholder='Image Url'
+        />
       <Star 
-      rating={inputs.rating}/>
+      rating={inputs.rating}
+      handleRating={handleRating}
+        />
       <button className='button'>Add Review</button>
       <p>The rating is {inputs.rating}.</p>
     </form>
