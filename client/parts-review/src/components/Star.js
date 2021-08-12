@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { FaStar } from 'react-icons/fa'
 
-export default function Star() {
+export default function Star(props) {
+    
+
+
     const [rating, setRating] = useState(null)
     const [hover, setHover] = useState(null)
 

@@ -107,20 +107,17 @@ export default function UserProvider(props){
             .catch(err => console.log(err.response.data.errMsg))
     }
 
-    function getReviewComments(reviewId) {
-      return userAxios.get(`/api/comment/review/${reviewId}`)
-            //.then(res => setReviewComments(prevComment => [...prevComment, ...res.data]))
-            //.then(res => setReviewComments(res.data))
-            .then(res => res.data)
-            .catch(err => console.log(err.response.data.errMsg))
-    }
+    // function getReviewComments(reviewId) {
+    //   return userAxios.get(`/api/comment/review/${reviewId}`)
+    //         .then(res => res.data)
+    //         .catch(err => console.log(err.response.data.errMsg))
+    // }
 
-    function addComment(newComment, reviewId) {
-       return userAxios.post(`/api/comment/${reviewId}`, newComment)
-            //.then(res => setReviewComments(prevComment => [...prevComment, ...res.data]))
-            .then(res => res.data)
-            .catch(err => console.log(err.response.data.errMsg))
-    }
+    // function addComment(newComment, reviewId) {
+    //    return userAxios.post(`/api/comment/${reviewId}`, newComment)
+    //         .then(res => res.data)
+    //         .catch(err => console.log(err.response.data.errMsg))
+    // }
 
     //fix this to show votes in profile page without having to refresh
 
@@ -159,8 +156,8 @@ export default function UserProvider(props){
                 getUserReviews: React.useCallback(getUserReviews, []),
                 addReview,
                 //reviewComments,
-                getReviewComments: React.useCallback(getReviewComments, []),
-                addComment,
+                //getReviewComments: React.useCallback(getReviewComments, []),
+                //addComment,
                 resetAuthError,
                 upVote,
                 downVote

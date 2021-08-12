@@ -6,7 +6,7 @@ import { UserContext } from '../context/UserProvider'
 //in public page all reviews are shown and in profile page only user's reviews are shown 
 
 export default function Review(props){
-    const { title, description, _id, imgUrl, upVotes, downVotes } = props
+    const { title, description, _id, imgUrl, rating, upVotes, downVotes } = props
 
 
     
@@ -65,7 +65,7 @@ export default function Review(props){
             <hr className='hr'/>
             <h2>{title}</h2>
             <p>Review left by: {username}</p>
-            <p>{/* {rating} */}2 stars.</p>
+            <p>{rating} stars.</p>
             <p className='description'>{description}</p>
             <img src={imgUrl} alt={imgUrl} width={300}/>
             <p>Is this review helpful?</p>
