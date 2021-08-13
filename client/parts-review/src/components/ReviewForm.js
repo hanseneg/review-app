@@ -65,11 +65,3 @@ export default function ReviewForm(){
       </form>
     )
 }
-
-
-
-
-
-// function setRating(rating){
-  //     setInputs({rating: rating})
-  // }
