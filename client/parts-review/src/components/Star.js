@@ -21,12 +21,15 @@ export default function Star(props) {
 //pass a function from ReviewForm to Star that calls setInputs, 
 //and setInputs will set the rating property to ratingValue
 
+
+
+
     return (
+        
+    
         <div>
             {[...Array(5)].map((star, i) => {
-                
                 const ratingValue = i + 1
-                
                 
                 return (
                     <label 
@@ -37,14 +40,16 @@ export default function Star(props) {
                             name='rating' 
                             value={ratingValue} 
                             className='star' 
-                            onClick={() => setRating(ratingValue)}
-                            onSubmit={() => handleRating(rating === ratingValue)}
-                            
+                            onClick={() => {
+                                setRating(ratingValue)
+                                handleRating(ratingValue)
+                                }}
                         />
-                        <FaStar color={ratingValue <= (hover || starRating) ? "#ffc107" : "#e4e5e9"} 
+                        <FaStar color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"} 
                                 onMouseEnter={() => setHover(ratingValue)}
                                 onMouseLeave={() => setHover(null)}
                                 size={20}/>
+                        
                     </label>
                 )
             })}

@@ -19,9 +19,12 @@ export default function ReviewForm(){
 //pass a function from ReviewForm to Star that calls setInputs, 
 //and setInputs will set the rating property to ratingValue
 
-  function handleRating(){
-    setInputs()
-  }
+function handleRating(rating){
+  setInputs(prevInputs => ({
+    ...prevInputs, 
+    rating: rating
+  }))
+}
 
   function handleChange(e){
     const {name, value} = e.target
