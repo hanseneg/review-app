@@ -56,6 +56,5 @@ export default function Star(props) {
             <p>The rating is {starRating}.</p>
             <p>The rating is  {rating} .</p>
         </div>
-        
     )
 }
