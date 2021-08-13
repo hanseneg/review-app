@@ -32,9 +32,7 @@ export default function Star(props) {
                 const ratingValue = i + 1
                 
                 return (
-                    <label 
-                        key={i}
-                    >
+                    <label key={i}>
                         <input 
                             type='radio' 
                             name='rating' 
