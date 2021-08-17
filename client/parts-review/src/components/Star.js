@@ -3,11 +3,9 @@ import { FaStar } from 'react-icons/fa'
 
 export default function Star(props) {
     
-
     //const [starRating, setRating] = useState(null)
     const [hover, setHover] = useState(null)
 
-   
     const rating = props.rating
     const handleRating = props.handleRating
 
@@ -51,5 +49,6 @@ export default function Star(props) {
         </div>
     )
 }
+
 
 // vscode://vscode.github-authentication/did-authenticate?windowid=1&code=e0ae6c26852aa5e79029&state=a04b405a-378f-4fd4-850f-052882437681 
