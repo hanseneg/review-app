@@ -40,28 +40,27 @@ export default function ReviewForm(){
           name="title" 
           value={inputs.title} 
           onChange={handleChange} 
-          placeholder="Title"
+          placeholder="Part brand name and part name"
           />
         <textarea 
           type="text" 
           name="description" 
           value={inputs.description} 
           onChange={handleChange} 
-          placeholder="Description"
+          placeholder="Description of the part and the car it is for"
           />
         <input 
           type='text'
           name='imgUrl'
           value={inputs.imgUrl}
           onChange={handleChange}
-          placeholder='Image Url'
+          placeholder='Image link of the part'
           />
         <Star 
         rating={inputs.rating}
         handleRating={handleRating}
           />
         <button className='button'>Add Review</button>
-        <p>The rating is {inputs.rating}.</p>
       </form>
     )
 }

@@ -65,15 +65,16 @@ export default function Review(props){
             <hr className='hr'/>
             <h2>{title}</h2>
             <p>Review left by: {username}</p>
-            <p>{rating} stars.</p>
+            <p>@{username} gave this part a <u><strong>{rating} star</strong></u> rating.</p>
             <p className='description'>{description}</p>
             <img src={imgUrl} alt={imgUrl} width={300}/>
             <p>Is this review helpful?</p>
-            <button className='button' onClick={upVoting} >Yes</button>
-            <p>{upVotes.length}</p>
-            <button className='button' onClick={downVoting} >No</button>
-            <p>{downVotes.length}</p>
-
+            <div className='votes'>
+                <button className='button' onClick={upVoting} >Yes</button>
+                <p>{upVotes.length}</p>
+                <button className='button' onClick={downVoting} >No</button>
+                <p>{downVotes.length}</p>
+            </div>
 
             {/* <button className='button' onClick={showCommentForm1} >Leave a Comment</button>
             {showCommentForm && (

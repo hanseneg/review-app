@@ -4,7 +4,7 @@ import { FaStar } from 'react-icons/fa'
 export default function Star(props) {
     
 
-    const [starRating, setRating] = useState(null)
+    //const [starRating, setRating] = useState(null)
     const [hover, setHover] = useState(null)
 
    
@@ -21,14 +21,9 @@ export default function Star(props) {
 //pass a function from ReviewForm to Star that calls setInputs, 
 //and setInputs will set the rating property to ratingValue
 
-
-
-
     return (
-        
-    
         <div>
-            {[...Array(5)].map((star, i) => {
+            {[...Array(10)].map((star, i) => {
                 const ratingValue = i + 1
                 
                 return (
@@ -39,20 +34,22 @@ export default function Star(props) {
                             value={ratingValue} 
                             className='star' 
                             onClick={() => {
-                                setRating(ratingValue)
+                                //setRating(ratingValue)
                                 handleRating(ratingValue)
-                                }}
+                                }
+                            }
                         />
                         <FaStar color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"} 
                                 onMouseEnter={() => setHover(ratingValue)}
                                 onMouseLeave={() => setHover(null)}
-                                size={20}/>
-                        
+                                size={20}
+                        />
                     </label>
                 )
             })}
-            <p>The rating is {starRating}.</p>
-            <p>The rating is  {rating} .</p>
+            <p>You are leaving a {rating} star rating.</p>
         </div>
     )
 }
+
+// vscode://vscode.github-authentication/did-authenticate?windowid=1&code=e0ae6c26852aa5e79029&state=a04b405a-378f-4fd4-850f-052882437681 
