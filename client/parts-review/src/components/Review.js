@@ -9,7 +9,6 @@ export default function Review(props){
     const { title, description, _id, imgUrl, rating, upVotes, downVotes } = props
 
 
-    
 
 
     //

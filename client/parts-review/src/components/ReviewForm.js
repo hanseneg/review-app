@@ -19,6 +19,8 @@ export default function ReviewForm(){
     }))
   }
 
+
+//updates name and value
     function handleChange(e){
       const {name, value} = e.target
       setInputs(prevInputs => ({
